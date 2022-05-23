@@ -1,0 +1,125 @@
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --text-color: #333;
+  --primary-color: #ee4d2d;
+  --border-color: #dbddbd;
+
+  --header-height: 120px;
+  --navbar-height: 40px;
+  --header-with-search-height: calc(var(--header-height) - var(--navbar-height))
+}
+
+* {
+  box-sizing: inherit;
+}
+
+html {
+  /*  Mặc định trình duyệt 100% là 16px, 62.5 tương đương 10px. */
+  font-size: 62.5%;
+  /* 1.6rem tương ứng 16px */
+  line-height: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.grid {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid__full-width {
+  width: 100%;
+}
+
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes growth {
+  from {
+    transform: scale(var(--growth-from));
+  }
+  to {
+    transform: scale(var(--growth-to));
+  }
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  animation: fadeIn ease-in 0.1s;
+  display: none;
+}
+
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+  /* width: 300px;
+    height: 300px; */
+  --growth-from: 0.7;
+  --growth-to: 1;
+  margin: auto;
+  z-index: 2;
+  animation: growth linear 0.1s;
+}
+
+/* Button style */
+.btn {
+  background-color: var(--white-color);
+  height: 36px;
+  min-width: 142px;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.4rem;
+  padding: 0 12px;
+  line-height: revert;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover.btn--nomal {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn--primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.btn.btn--disable {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.btn.btn--size-s {
+  height: 32px;
+  font-size: 1.2rem;
+}
